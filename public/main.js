@@ -76,7 +76,7 @@ $(document).ready(() => {
   const start = Date.now()
 
   const logo = new Image()
-  logo.src = '/img/circle.svg'
+  logo.src = '/public/circle.svg'
 
   let logo_draw = () => {
     loader_context.clearRect(0, 0, loader_canvas.width, loader_canvas.height)
