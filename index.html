@@ -4,6 +4,7 @@
     <title>Zylviij</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/prism/1.2.0/themes/prism-funky.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans:100">
     <link rel="stylesheet" href="./public/main.css">
   </head>
@@ -144,57 +145,90 @@
       <div class="slide-in">
         <div class="portfolio-item">
           <div class="portfolio-img">
-            <code>
-              #include &lt;iostream&gt;<br>
-              #include &lt;iomanip&gt;<br>
-              using namespace std;<br>
-              int** comb(int** a , int row , int col)<br>
-              {<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;int mid = col/2;<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;//clear matrix<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;for( int i = 0 ; i &lt; row ; i++)<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for( int j = 0 ; j &lt; col ; j++)<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a[i][j] = 0;<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a[0][mid] = 1; //put 1 in the middle of first row<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;//build up Pascal's Triangle matrix<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;for( int i = 1 ; i &lt; row ; i++)<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;{<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for( int j = 1 ; j &lt; col - 1 ; j++)<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a[i][j] = a[i-1][j-1] + a[i-1][j+1];<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
-              &nbsp;&nbsp;&nbsp;&nbsp;return a;<br>
-              }
-            </code>
+            <pre><code class="language-clike">
+#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+using namespace std;
+int** comb(int** a , int row , int col)
+{
+  int mid = col/2;
+  //clear matrix
+  for( int i = 0 ; i &lt; row ; i++)
+    for( int j = 0 ; j &lt; col ; j++)
+      a[i][j] = 0;
+      a[0][mid] = 1; //put 1 in the middle of first row
+  //build up Pascal's Triangle matrix
+  for( int i = 1 ; i &lt; row ; i++)
+  {
+    for( int j = 1 ; j &lt; col - 1 ; j++)
+      a[i][j] = a[i-1][j-1] + a[i-1][j+1];
+  }
+  return a;
+}
+            </code></pre>
+          </div>
+          <div class="portfolio-title"><h4>Microcontroller Programming</h4></div>
+          <div class="portfolio-description">
+            <p>As the leader of my High School’s FIRST Robotics Programming team, I learned about the importance of scheduling and organization.</p>
+            <p>Having to work with several independent teams such as the mechanical team, the electrical team, and our self-funding business team to create a competition ready robot in only six weeks, I learned the valuable skills of scheduling and communication.</p>
           </div>
         </div>
         <div class="portfolio-item">
           <div class="portfolio-img">
-            <code>
-              &lt;!DOCTYPE html&gt;<br>
-              &lt;html&gt;<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Zylviij&lt;/title&gt;<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta charset=&quot;utf-8&quot;&gt;<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css&quot;&gt;<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link rel=&quot;stylesheet&quot; href=&quot;https://fonts.googleapis.com/css?family=Josefin+Sans:100&quot;&gt;<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link rel=&quot;stylesheet&quot; href=&quot;./public/main.css&quot;&gt;<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;canvas class=&quot;background&quot;&gt;&lt;/canvas&gt;<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;canvas class=&quot;loader&quot;&gt;&lt;/canvas&gt;<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;canvas class=&quot;conway&quot;&gt;&lt;/canvas&gt;<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;nav&quot;&gt;<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;nav-buttons&quot;&gt;<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;nav-button&quot;&gt;<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button class=&quot;home&quot;&gt;Home&lt;/button&gt;<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;nav-button&quot;&gt;<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button class=&quot;about&quot;&gt;About&lt;/button&gt;<br>
-            </code>
+            <pre><code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Zylviij&lt;/title&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://fonts.googleapis.com/css?family=Josefin+Sans:100&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;./public/main.css&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;canvas class=&quot;background&quot;&gt;&lt;/canvas&gt;
+    &lt;canvas class=&quot;loader&quot;&gt;&lt;/canvas&gt;
+    &lt;canvas class=&quot;conway&quot;&gt;&lt;/canvas&gt;
+    &lt;div class=&quot;nav&quot;&gt;
+      &lt;div class=&quot;nav-buttons&quot;&gt;
+        &lt;div class=&quot;nav-button&quot;&gt;
+          &lt;button class=&quot;home&quot;&gt;Home&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;nav-button&quot;&gt;
+          &lt;button class=&quot;about&quot;&gt;About&lt;/button&gt;
+            </code></pre>
+          </div>
+          <div class="portfolio-title"><h4>Ziolkowski Dental</h4></div>
+          <div class="portfolio-description">
+            <p>Working for several years on a website, creating an system that is integrated with the proprietary scheduling system, and managing an SEO web presence taught me many valuable skills about working on a small buisness web application.</p>
           </div>
         </div>
         <div class="portfolio-item">
-          <div class="portfolio-img"></div>
+          <div class="portfolio-img">
+            <pre><code class="language-javascript">
+let ripples = []
+class Ripple {
+  constructor(x, y) {
+    this.x = x
+    this.y = y
+    this.time = Date.now();
+  }
+  get age() {
+    return Date.now() - this.time;
+  }
+}
+$(document).ready(() =&gt; {
+  /// Background Canvas
+  const background_canvas = $('canvas.background')[0]
+  const background_context = background_canvas.getContext('2d')
+  background_canvas.width = window.innerWidth
+            </code></pre>
+          </div>
+          <div class="portfolio-title"><h4>Freelance Work</h4></div>
+          <div class="portfolio-description">
+            <p>Whether working on academic, extracurricular, or professional projects, I pride myself on my problem solving skill and ability to effectively manage time.</p>
+            <p>This tenacity fueled my persuit of freelance work. Mostly making widgets for websites or creating scripts to scrape webpages, I learned much about client interaction.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -203,6 +237,7 @@
       <iframe class="map" src="https://snazzymaps.com/embed/20792"></iframe>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/prism/1.2.0/prism.js"></script>
     <script src="./public/main.js"></script>
   </body>
 </html>

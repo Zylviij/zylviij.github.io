@@ -1,4 +1,5 @@
 
+
 let ripples = []
 
 class Ripple {
@@ -14,6 +15,7 @@ class Ripple {
 }
 
 $(document).ready(() => {
+
   /// Background Canvas
   const background_canvas = $('canvas.background')[0]
   const background_context = background_canvas.getContext('2d')
@@ -199,8 +201,8 @@ $(document).ready(() => {
     conway_context.clearRect(0, 0, conway_canvas.width, conway_canvas.height)
 
     let saturation = 80
-    let alpha = 0.5
-    let luminocity = 30
+    let alpha = 0.3
+    let luminocity = 20
     let hue = 310
 
     let hsla = (h, s, l, a) => {

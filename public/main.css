@@ -218,13 +218,20 @@ button:active {
 }
 
 .portfolio-img {
-  position: absolute;
-  top: 10vh;
   width: 33vmin;
   height: 33vmin;
   border-radius: 50%;
   overflow: hidden;
   white-space: nowrap;
+  margin: 15% auto;
+}
+
+.portfolio-title {
+  padding: 10px 10%;
+}
+
+.portfolio-description {
+  padding: 10px 10%;
 }
 
 iframe {
