@@ -220,8 +220,8 @@ button:active {
 }
 
 .portfolio-img {
-  width: 33vmin;
-  height: 33vmin;
+  width: 25vmin;
+  height: 25vmin;
   border-radius: 50%;
   overflow: hidden;
   white-space: nowrap;
@@ -236,17 +236,37 @@ button:active {
   padding: 5px 10%;
 }
 
+a {
+  color: rgba(204, 163, 197, 1);
+}
+
 iframe {
   opacity: 0.5;
+  z-index: 0;
 }
 
 .map {
   position: absolute;
-  width: 100vw;
-  height: 90vh;
-  z-index: 5;
+  z-index: 1;
   border: none;
   outline: none;
+  width: 100%;
+  height: 100%;
+}
+
+#cover {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  text-align: right;
+}
+
+.contact-info {
+  float: right;
+  margin: 18vmin;
+  padding: 2vmin;
+  background-color: rgba(51, 10, 43, 0.8);
+  border-radius: 1vmin;
 }
 
 

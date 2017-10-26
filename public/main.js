@@ -201,8 +201,8 @@ $(document).ready(() => {
     conway_context.clearRect(0, 0, conway_canvas.width, conway_canvas.height)
 
     let saturation = 80
-    let alpha = 0.3
-    let luminocity = 20
+    let alpha = 0.1
+    let luminocity = 50
     let hue = 310
 
     let hsla = (h, s, l, a) => {
