@@ -76,7 +76,7 @@ $(document).ready(() => {
   const start = Date.now()
 
   const logo = new Image()
-  logo.src = '/public/circle.svg'
+  logo.src = './public/circle.svg'
 
   let logo_draw = () => {
     loader_context.clearRect(0, 0, loader_canvas.width, loader_canvas.height)
@@ -200,7 +200,7 @@ $(document).ready(() => {
 
     let saturation = 80
     let alpha = 0.5
-    let luminocity = 50
+    let luminocity = 30
     let hue = 310
 
     let hsla = (h, s, l, a) => {

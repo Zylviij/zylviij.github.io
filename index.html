@@ -5,26 +5,29 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans:100">
-    <link rel="stylesheet" href="/public/main.css">
+    <link rel="stylesheet" href="./public/main.css">
   </head>
   <body>
     <canvas class="background"></canvas>
     <canvas class="loader"></canvas>
+    <canvas class="conway"></canvas>
     <div class="nav">
-      <div class="nav-button">
-        <button class="home">Home</button>
-      </div>
-      <div class="nav-button">
-        <button class="about">About</button>
-      </div>
-      <div class="nav-button">
-        <button class="skills">Skills</button>
-      </div>
-      <div class="nav-button">
-        <button class="portfolio">Portfolio</button>
-      </div>
-      <div class="nav-button">
-        <button class="contact">Contact</button>
+      <div class="nav-buttons">
+        <div class="nav-button">
+          <button class="home">Home</button>
+        </div>
+        <div class="nav-button">
+          <button class="about">About</button>
+        </div>
+        <div class="nav-button">
+          <button class="skills">Skills</button>
+        </div>
+        <div class="nav-button">
+          <button class="portfolio">Portfolio</button>
+        </div>
+        <div class="nav-button">
+          <button class="contact">Contact</button>
+        </div>
       </div>
     </div>
     <div class="slide" id="home">
@@ -33,22 +36,173 @@
         <h2>Blake Ziolkowski</h2>
         <h3>Full Stack Developer</h3>
       </div>
+      <!--p>
+        With my experience using functional programming techniques, I have developed systems that are made to be easy to maintain, test, and expand.  Seeking to supplement my college education with real-world experience, I have done many freelancing jobs ranging from widgets to websites.  My work experience includes many solo projects and several small team projects. Continual learning is very important to me; every new job is an exciting opportunity to learn new skills or techniques!
+      </p-->
     </div>
     <div class="slide" id="about">
-      <h1>About</h1>
+      <div class="slide-title"><h1>About</h1></div>
+      <div class="slide-in">
+        <div class="event">
+          <div class="event-highlight">
+            <h4>Marquette University High School</h4>
+          </div>
+          <div class="event-detail">
+            <h4>September 2012 - May 2016, Milwaukee, WI</h4>
+            <p>It was here that I first took a formal programming class, AP Computer Science.
+              Here I competed on the FIRST Robotics team which qualified for the World's Tournament.
+              On the Cyber Patriot Cybersecurity team, we managed to place first in state each year!</p>
+          </div>
+        </div>
+        <div class="event">
+          <div class="event-highlight">
+            <h4>FIRST Robotics</h4>
+          </div>
+          <div class="event-detail">
+            <h4>January 2013 - May 2016</h4>
+            As leader of a small team of 12 students at my high school, we programmed a microcontroller for competition in six weeks.
+            This experience taught me how to lead and schedule tasks for a team in an environment that was highly time sensitive and performance intensive.
+          </div>
+        </div>
+        <div class="event">
+          <div class="event-highlight">
+            <h4>Ziolkowski Dental</h4>
+          </div>
+          <div class="event-detail">
+            <h4>June 2014 - PRESENT, Shorewood, WI</h4>
+            Developing new content during the summers and doing upkeep and IT work during the winters, I have created and maintained their website for three years.
+          </div>
+        </div>
+        <div class="event">
+          <div class="event-highlight">
+            <h4>Freelance Work (Code Scarlet)</h4>
+          </div>
+          <div class="event-detail">
+            <h4>2015 - PRESENT</h4>
+            Front-End Website Development (Javascript, CSS, Bootstrap)
+            Backend Website Development (Java, Haskell, PHP, C++/C)
+          </div>
+        </div>
+        <div class="event">
+          <div class="event-highlight">
+            <h4>University of Wisconsin - Madison</h4>
+          </div>
+          <div class="event-detail">
+            <h4>September 2016 - PRESENT,  Madison, WI</h4>
+            Due to my AP credit and average course load, I expect to graduate in three years
+          </div>
+        </div>
+      </div>
     </div>
     <div class="slide" id="skills">
-      <canvas class="conway"></canvas>
-      <h1>Skills</h1>
+      <div class="slide-title"><h1>Skills</h1></div>
+      <div class="slide-in">
+        <div class="event">
+          <div class="event-highlight-r">
+            <h4>Functional Programming</h4>
+          </div>
+          <div class="event-detail">
+            Functional Programming Techniques create Easily Maintainable, Highly Scalable, and Provably Stable Code
+          </div>
+        </div>
+        <div class="event">
+          <div class="event-highlight-r">
+            <h4>Linux/Unix &amp; Databases</h4>
+          </div>
+          <div class="event-detail">
+            Linux/Unix Shell provides a Convenient and Consistent way to Maintain Databases and Stable System Software
+          </div>
+        </div>
+        <div class="event">
+          <div class="event-highlight-r">
+            <h4>Graphics</h4>
+          </div>
+          <div class="event-detail">
+            WebGL / Canvas / OpenGL / Unity3D / JavaFX
+          </div>
+        </div>
+        <div class="event">
+          <div class="event-highlight-r">
+            <h4>Programming Languages</h4>
+          </div>
+          <div class="event-detail">
+            HTML5 / CSS / Javascipt (Node.js too) / Java / Haskell / C / Python
+          </div>
+        </div>
+        <div class="event">
+          <div class="event-highlight-r">
+            <h4>Source Control</h4>
+          </div>
+          <div class="event-detail">
+            For work in teams and for long term projects, there is no better system than Source Code Repositories
+          </div>
+        </div>
+      </div>
     </div>
     <div class="slide" id="portfolio">
-      <h1>Portfolio</h1>
+      <div class="slide-title"><h1>Portfolio</h1></div>
+      <div class="slide-in">
+        <div class="portfolio-item">
+          <div class="portfolio-img">
+            <code>
+              #include &lt;iostream&gt;<br>
+              #include &lt;iomanip&gt;<br>
+              using namespace std;<br>
+              int** comb(int** a , int row , int col)<br>
+              {<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;int mid = col/2;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;//clear matrix<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;for( int i = 0 ; i &lt; row ; i++)<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for( int j = 0 ; j &lt; col ; j++)<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a[i][j] = 0;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a[0][mid] = 1; //put 1 in the middle of first row<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;//build up Pascal's Triangle matrix<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;for( int i = 1 ; i &lt; row ; i++)<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;{<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for( int j = 1 ; j &lt; col - 1 ; j++)<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a[i][j] = a[i-1][j-1] + a[i-1][j+1];<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;return a;<br>
+              }
+            </code>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <div class="portfolio-img">
+            <code>
+              &lt;!DOCTYPE html&gt;<br>
+              &lt;html&gt;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Zylviij&lt;/title&gt;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta charset=&quot;utf-8&quot;&gt;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css&quot;&gt;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link rel=&quot;stylesheet&quot; href=&quot;https://fonts.googleapis.com/css?family=Josefin+Sans:100&quot;&gt;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link rel=&quot;stylesheet&quot; href=&quot;./public/main.css&quot;&gt;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;canvas class=&quot;background&quot;&gt;&lt;/canvas&gt;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;canvas class=&quot;loader&quot;&gt;&lt;/canvas&gt;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;canvas class=&quot;conway&quot;&gt;&lt;/canvas&gt;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;nav&quot;&gt;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;nav-buttons&quot;&gt;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;nav-button&quot;&gt;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button class=&quot;home&quot;&gt;Home&lt;/button&gt;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;nav-button&quot;&gt;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button class=&quot;about&quot;&gt;About&lt;/button&gt;<br>
+            </code>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <div class="portfolio-img"></div>
+        </div>
+      </div>
     </div>
     <div class="slide" id="contact">
-      <h1>Contact</h1>
-      <!-- iframe.map(src='https://snazzymaps.com/embed/20792')-->
+      <div class="slide-title"><h1>Contact</h1></div>
+      <iframe class="map" src="https://snazzymaps.com/embed/20792"></iframe>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="/public/main.js"></script>
+    <script src="./public/main.js"></script>
   </body>
 </html>
