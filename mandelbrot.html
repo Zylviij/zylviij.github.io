@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Zylviij</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <canvas class="mandelbrot"></canvas>
+    <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    canvas {
+      width: auto;
+      height: auto;
+    }
+    </style>
+
+    <script id="vertex" type="text/shader">
+    attribute vec2 aPosition;
+
+    void main() {
+      gl_Position = vec4(aPosition, 0.0, 1.0);
+    }
+    </script>
+
+
+
+    <script id="fragment" type="text/shader">
+
+    precision highp float;
+
+    uniform vec3 uCoordinates;
+    uniform vec2 uResolution;
+
+    uniform vec3 uColor;
+    uniform vec3 uFade;
+
+    const int MAX = 200;
+
+    vec3 gradient(in float i) {
+      return uFade.z + (1.0 - uFade.z) * cos(uFade.y + uFade.x * i + uColor.xyz);
+    }
+
+
+    float mandelbrot(in vec2 c) {
+      const float B = 256.0;
+
+      float n = 0.0;
+      vec2 z = vec2(0.0);
+
+      for (int i = 0; i < MAX; i++) {
+        z = vec2(z.x * z.x - z.y * z.y, 2.0 * z.x * z.y) + c;
+        if (dot(z, z) > B) break;
+        n += 1.0;
+      }
+
+      return n - log2(log2(dot(z, z))) + 4.0;
+    }
+
+    void main() {
+      vec3 color = vec3(0.0);
+
+      vec2 pixel = (-uResolution.xy + 2.0 * (gl_FragCoord.xy)) / uResolution.y;
+
+      vec2 subpixel = uCoordinates.xy + pixel * uCoordinates.z;
+
+      float m = mandelbrot(subpixel);
+
+      gl_FragColor = vec4(gradient(m), 1);
+    }
+
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./public/mandelbrot.js"></script>
+  </body>
+</html>
