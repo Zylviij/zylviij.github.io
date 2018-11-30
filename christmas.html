@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Secret Santa</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="./public/christmas.css">
+  </head>
+  <body>
+    <div class="container">
+		<div id="login-card" class="card">
+			<div class="card-body">
+				<h3>Login</h3>
+				<form id="login">
+					<div class="form-group">
+						<label for="username">Username</label>
+						<input class="form-control" id="username" placeholder="Enter Username">
+					</div>
+					<div class="form-group">
+						<label for="password">Password</label>
+						<input type="password" class="form-control" id="password" placeholder="Password">
+					</div>
+					<button type="submit" class="btn btn-primary">Login</button>
+				</form>
+			</div>
+		</div>
+		<div id="secret-santa-card" class="card" style="display: none">
+			<div class="card">
+				<h3>Secret Santa</h3>
+				<p id="secret-santa"></p>
+			</div>
+		</div>
+    </div>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/2.3.10/seedrandom.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
+    <script>
+
+Math.seedrandom(1)
+const Crypto = CryptoJS
+
+class User {
+	constructor(username, password, firstname, lastname, birthday = new Date(0)) {
+		// email
+		this.username = username // String
+
+		this.firstname = firstname
+		this.lastname = lastname
+
+		this.birthday = birthday // (millisecond)
+
+		this.wishList = new Array() // [Wish]
+		this.secretSanta = null // User
+
+		this.password = Util.saltAndHash(this.firstname + this.birthday.toString(), password) // String
+
+	}
+
+	login(username, password) {
+		return this.username == username && this.password == Util.saltAndHash(this.firstname + this.birthday.toString(), password)
+	}
+
+	isAdult() {
+		const birthdayRequirement = new Date(new Date().getFullYear() - 18, 11, 25)
+		return this.birthday < birthdayRequirement
+	}
+
+	toString() {
+		return this.firstname + ' ' + this.lastname + ' (' + this.username + ')'
+	}
+
+	static setUpSecretSanta(users) {
+		User.generateSecretSanta(users).forEach(([from, to]) => from.secretSanta = to)
+	}
+
+	static generateSecretSanta(users) {
+		const out = users.map(user => [user, user])
+
+		while (out.some(([from, to]) => from.lastname == to.lastname)) {
+			const a = Util.int(Math.random() * out.lenth)
+			const b = Util.int(Math.random() * out.length)
+
+			const temp = out[a][1]
+			out[a][1] = out[b][1]
+			out[b][1] = temp
+		}
+
+		return out
+	}
+}
+
+class Util {
+	static int(num) {
+		return num | 0;
+	}
+
+	static saltAndHash(salt, data) {
+		return Crypto.SHA256(Crypto.SHA256(salt).toString(Crypto.enc.Base64) + data).toString(Crypto.enc.Base64)
+	}
+}
+
+const users = new Array()
+users.push(new User('schris', '', 'Chris', 'Schneider', new Date(1953, 9, 30)))
+users.push(new User('salison', '', 'Alison', 'Schneider', new Date(1985, 0, 31)))
+users.push(new User('smatt', '', 'Matt', 'Schneider', new Date(1987, 2, 18)))
+users.push(new User('sdiana', '', 'Diana', 'Schneider', new Date(1989, 5, 20)))
+
+users.push(new User('zblake', 'p9uhUja8', 'Blake', 'Ziolkowski', new Date(1997, 10, 12)))
+users.push(new User('zremy', '', 'Remy', 'Ziolkowski', new Date(2000, 5, 11)))
+users.push(new User('zkeith', '', 'Keith', 'Ziolkowski', new Date(1956, 10, 12)))
+users.push(new User('zancka', '', 'Ancka', 'Ziolkowski', new Date(1963, 10, 23)))
+
+users.push(new User('samanda', '', 'Amanda', 'Sobczak', new Date(1989, 1, 23)))
+users.push(new User('szack', '', 'Zack', 'Sobczak', new Date(1988, 9, 4)))
+users.push(new User('sjonathan', '', 'Jonathan', 'Sobczak', new Date(1985, 0, 14)))
+users.push(new User('skaren', '', 'Karen', 'Sobczak', new Date(1958, 6, 31)))
+users.push(new User('sgreg', '', 'Greg', 'Sobczak', new Date(1958, 1, 23)))
+
+users.push(new User('zlila', '', 'Lila', 'Ziolkowski', new Date(1970)))
+
+users.push(new User('sdeclan', '', 'Declan', 'Schneider', new Date(2017, 7, 26)))
+users.push(new User('skayleigh', '', 'Kayleigh', 'Schneider', new Date(2018, 0)))
+users.push(new User('slily', '', 'Lily', 'Schneider', new Date(2003, 0)))
+users.push(new User('sanita', '', 'Anita', 'Sobcak', new Date(2008, 0)))
+users.push(new User('zkiwi', '', 'Kiwi', 'Ziolkowski', new Date(2005, 0)))
+users.push(new User('zkeanu', '', 'Keanu', 'Ziolkowski', new Date(2005, 0)))
+
+const adults = users.filter(user => user.isAdult())
+
+User.setUpSecretSanta(adults)
+adults.forEach(adult => {
+	console.log(adult.firstname + '=>' + adult.secretSanta.firstname)
+})
+
+document.querySelector("#login").addEventListener("submit", (e) => {
+	console.log("wow")
+	e.preventDefault();
+	const username = document.getElementById('username').value
+	const password = document.getElementById('password').value
+	console.log(username)
+	console.log(password)
+
+	const user = users.filter(user => user.login(username, password)).pop()
+
+	if (user) {
+		const login = document.getElementById('login-card')
+		const secretSanta = document.getElementById('secret-santa-card')
+		const secretSantaText = document.getElementById('secret-santa')
+
+		login.style.display = 'none'
+
+		console.log(user)
+
+		secretSantaText.textContent = user.secretSanta.firstname + ' ' + user.secretSanta.lastname
+		secretSanta.style.display = 'block'
+	} else {
+		document.getElementById('username').classList.add('is-invalid')
+		document.getElementById('password').classList.add('is-invalid')
+	}
+})
+	</script>
+  </body>
+</html>
