@@ -109,7 +109,7 @@ users.push(new User('salison', '', 'Alison', 'Schneider', new Date(1985, 0, 31))
 users.push(new User('smatt', '', 'Matt', 'Schneider', new Date(1987, 2, 18)))
 users.push(new User('sdiana', '', 'Diana', 'Schneider', new Date(1989, 5, 20)))
 
-users.push(new User('zblake', 'p9uhUja8', 'Blake', 'Ziolkowski', new Date(1997, 10, 12)))
+users.push(new User('zblake', '', 'Blake', 'Ziolkowski', new Date(1997, 10, 12)))
 users.push(new User('zremy', '', 'Remy', 'Ziolkowski', new Date(2000, 5, 11)))
 users.push(new User('zkeith', '', 'Keith', 'Ziolkowski', new Date(1956, 10, 12)))
 users.push(new User('zancka', '', 'Ancka', 'Ziolkowski', new Date(1963, 10, 23)))
@@ -130,6 +130,10 @@ users.push(new User('zkiwi', '', 'Kiwi', 'Ziolkowski', new Date(2005, 0)))
 users.push(new User('zkeanu', '', 'Keanu', 'Ziolkowski', new Date(2005, 0)))
 
 const adults = users.filter(user => user.isAdult())
+
+users[4].password = 'g9a3tatT+u024vNFK1ovhE/63ZQxXxBPP6edainSX8g='
+users[6].password = 'DyePXPFroMHVTAXzsB7UlNrDB/EeKIOzQ8Iynx1L03A='
+users[7].password = 'c9aSq4d24Z/uOg94L3EOuesFPNXLA4y6ex+JkkAb2N8='
 
 User.setUpSecretSanta(adults)
 adults.forEach(adult => {
