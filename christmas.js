@@ -1,71 +1,69 @@
-Math.seedrandom(1)
+Math.seedrandom(27)
 const Crypto = CryptoJS
 
 class User {
-	constructor(username, password, firstname, lastname, birthday = new Date(0)) {
-		// email
-		this.username = username // String
+    constructor(username, password, firstname, lastname, birthday = new Date(0)) {
+	// email
+	this.username = username // String
 
-		this.firstname = firstname
-		this.lastname = lastname
+	this.firstname = firstname
+	this.lastname = lastname
 
-		this.birthday = birthday // (millisecond)
+	this.birthday = birthday // (millisecond)
 
-		this.wishList = new Array() // [Wish]
-		this.secretSanta = null // User
+	this.wishList = new Array() // [Wish]
+	this.secretSanta = null // User
 
-		this.password = Util.saltAndHash(this.firstname + this.birthday.toString(), password) // String
+	this.password = Util.saltAndHash(this.firstname + this.birthday.toString(), password) // String
 
+    }
+
+    login(username, password) {
+	return this.username == username && this.password == Util.saltAndHash(this.firstname + this.birthday.toString(), password)
+    }
+
+    isAdult() {
+	const birthdayRequirement = new Date(new Date().getFullYear() - 18, 11, 25)
+	return this.birthday < birthdayRequirement
+    }
+
+    toString() {
+	return this.firstname + ' ' + this.lastname + ' (' + this.username + ')'
+    }
+
+    static setUpSecretSanta(users) {
+	User.generateSecretSanta(users).forEach(([from, to]) => from.secretSanta = to)
+    }
+
+    static generateSecretSanta(users) {
+	const out = users.map(user => [user, user])
+
+	while (out.some(([from, to]) => from.lastname == to.lastname)) {
+	    const a = Util.int(Math.random() * out.lenth)
+	    const b = Util.int(Math.random() * out.length)
+
+	    const temp = out[a][1]
+	    out[a][1] = out[b][1]
+	    out[b][1] = temp
 	}
 
-	login(username, password) {
-		return this.username == username && this.password == Util.saltAndHash(this.firstname + this.birthday.toString(), password)
-	}
-
-	isAdult() {
-		const birthdayRequirement = new Date(new Date().getFullYear() - 18, 11, 25)
-		return this.birthday < birthdayRequirement
-	}
-
-	toString() {
-		return this.firstname + ' ' + this.lastname + ' (' + this.username + ')'
-	}
-
-	static setUpSecretSanta(users) {
-		User.generateSecretSanta(users).forEach(([from, to]) => from.secretSanta = to)
-	}
-
-	static generateSecretSanta(users) {
-		const out = users.map(user => [user, user])
-
-		while (out.some(([from, to]) => from.lastname == to.lastname)) {
-			const a = Util.int(Math.random() * out.lenth)
-			const b = Util.int(Math.random() * out.length)
-
-			const temp = out[a][1]
-			out[a][1] = out[b][1]
-			out[b][1] = temp
-		}
-
-		return out
-	}
+	return out
+    }
 }
 
 class Util {
-	static int(num) {
-		return num | 0;
-	}
+    static int(num) {
+	return num | 0;
+    }
 
-	static saltAndHash(salt, data) {
-		return Crypto.SHA256(Crypto.SHA256(salt).toString(Crypto.enc.Base64) + data).toString(Crypto.enc.Base64)
-	}
+    static saltAndHash(salt, data) {
+	return Crypto.SHA256(Crypto.SHA256(salt).toString(Crypto.enc.Base64) + data).toString(Crypto.enc.Base64)
+    }
 }
 
 const users = new Array()
 users.push(new User('schris', '', 'Chris', 'Schneider', new Date(1953, 9, 30)))
 users.push(new User('salison', '', 'Alison', 'Schneider', new Date(1985, 0, 31)))
-users.push(new User('smatt', '', 'Matt', 'Schneider', new Date(1987, 2, 18)))
-users.push(new User('sdiana', '', 'Diana', 'Schneider', new Date(1989, 5, 20)))
 
 users.push(new User('zblake', 'p9uhUja8', 'Blake', 'Ziolkowski', new Date(1997, 10, 12)))
 users.push(new User('zremy', '', 'Remy', 'Ziolkowski', new Date(2000, 5, 11)))
@@ -78,42 +76,42 @@ users.push(new User('sjonathan', 'Js123456!', 'Jonathan', 'Sobczak', new Date(19
 users.push(new User('skaren', '', 'Karen', 'Sobczak', new Date(1958, 6, 31)))
 users.push(new User('sgreg', '', 'Greg', 'Sobczak', new Date(1958, 1, 23)))
 
-users.push(new User('zlila', '', 'Lila', 'Ziolkowski', new Date(1970)))
+users.push(new User('zlila', '', 'Lila', 'Ziolkowski ', new Date(1970)))
 
 users.push(new User('sdeclan', '', 'Declan', 'Schneider', new Date(2017, 7, 26)))
 users.push(new User('scallee', '', 'Callee', 'Schneider', new Date(2018, 0)))
-users.push(new User('slilly', '', 'Lilly', 'Schneider', new Date(2003, 0)))
-users.push(new User('sanita', '', 'Anita', 'Sobcak', new Date(2008, 0)))
+users.push(new User('ssam', '', 'Sam', 'Schneider', new Date(2003, 0)))
+users.push(new User('sanita', '', 'Anita', 'Sobczak', new Date(2008, 0)))
 users.push(new User('zkiwi', '', 'Kiwi', 'Ziolkowski', new Date(2005, 0)))
 users.push(new User('zkeanu', '', 'Keanu', 'Ziolkowski', new Date(2005, 0)))
 
 function makeElement(type, classes = '') {
-	const out = document.createElement(type)
-	out.className = classes
-	return out
+    const out = document.createElement(type)
+    out.className = classes
+    return out
 }
 
 function makeList(person, list) {
-	const table = makeElement('table', 'table col-md-6 col-lg-4 col-xl-3')
-	const head = makeElement('thead', 'thead-dark')
-	table.appendChild(head)
-	const headText = makeElement('tr')
-	head.appendChild(headText)
-	const headText2 = makeElement('th')
-	headText2.textContent = person
-	headText.appendChild(headText2)
+    const table = makeElement('table', 'table col-md-6 col-lg-4 col-xl-3')
+    const head = makeElement('thead', 'thead-dark')
+    table.appendChild(head)
+    const headText = makeElement('tr')
+    head.appendChild(headText)
+    const headText2 = makeElement('th')
+    headText2.textContent = person
+    headText.appendChild(headText2)
 
-	const body = makeElement('tbody')
-	table.appendChild(body)
-	list.forEach(item => {
-		const row = makeElement('tr')
-		body.appendChild(row)
-		const row2 = makeElement('td')
-		row2.textContent = item
-		row.appendChild(row2)
-	})
+    const body = makeElement('tbody')
+    table.appendChild(body)
+    list.forEach(item => {
+	const row = makeElement('tr')
+	body.appendChild(row)
+	const row2 = makeElement('td')
+	row2.textContent = item
+	row.appendChild(row2)
+    })
 
-	return table
+    return table
 }
 
 // Lists
@@ -159,45 +157,45 @@ const zach = users.find(user => user.username == 'szach')
 zach.wishList.push('Smart light bulbs soft white 60w equivalent')
 zach.wishList.push('A19 style Northface Beanie style knit hat')
 zach.wishList.push('Grey or black Men\'s leather gloves (size large)')
-zach.wishList.push('Home Depot Gift Card')\
+zach.wishList.push('Home Depot Gift Card')
 zach.wishList.push('Amazon Gift Card')
 zach.wishList.push('Scotch')
 
 const adults = users.filter(user => user.isAdult())
 
 User.setUpSecretSanta(adults)
-adults.forEach(adult => {
-	console.log(adult.firstname + '=>' + adult.secretSanta.firstname)
-})
+// adults.forEach(adult => {
+    // console.log(adult.firstname + '=>' + adult.secretSanta.firstname)
+// })
 
 document.querySelector("#login").addEventListener("submit", (e) => {
-	e.preventDefault();
-	const username = document.getElementById('username').value
-	const password = document.getElementById('password').value
-	console.log(username)
-	console.log(password)
+    e.preventDefault();
+    const username = document.getElementById('username').value
+    const password = document.getElementById('password').value
+    // console.log(username)
+    // console.log(password)
 
-	const user = users.filter(user => user.login(username, password)).pop()
+    const user = users.filter(user => user.login(username, password)).pop()
 
-	if (user) {
-		const login = document.getElementById('login-card')
-		const secretSanta = document.getElementById('secret-santa-card')
-		const secretSantaText = document.getElementById('secret-santa')
+    if (user) {
+	const login = document.getElementById('login-card')
+	const secretSanta = document.getElementById('secret-santa-card')
+	const secretSantaText = document.getElementById('secret-santa')
 
-		login.style.display = 'none'
+	login.style.display = 'none'
 
-		console.log(user)
+	// console.log(user)
 
-		secretSantaText.textContent = user.secretSanta.firstname + ' ' + user.secretSanta.lastname
-		secretSanta.style.display = 'block'
+	secretSantaText.textContent = user.secretSanta.firstname + ' ' + user.secretSanta.lastname
+	secretSanta.style.display = 'block'
 
-		users.forEach(cur => {
-			if (!cur.isAdult() || user.secretSanta.username == cur.username) {
-				base.appendChild(makeList(cur.firstname, cur.wishList))
-			}
-		})
-	} else {
-		document.getElementById('username').classList.add('is-invalid')
-		document.getElementById('password').classList.add('is-invalid')
-	}
+	users.forEach(cur => {
+	    if (!cur.isAdult() || user.secretSanta.username == cur.username) {
+		base.appendChild(makeList(cur.firstname, cur.wishList))
+	    }
+	})
+    } else {
+	document.getElementById('username').classList.add('is-invalid')
+	document.getElementById('password').classList.add('is-invalid')
+    }
 })
