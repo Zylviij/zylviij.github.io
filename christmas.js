@@ -121,7 +121,6 @@ const alison = users.find(user => user.username == 'salison')
 alison.wishList.push('Mini Diffuser + Essential Oils')
 alison.wishList.push('Gift Cards: Message and Pedicare')
 alison.wishList.push('Tea Drops: Citrus Ginger and That Iced Tea')
-//base.appendChild(makeList(salison.firstname, salison.wishList))
 
 const declan = users.find(user => user.username == 'sdeclan')
 declan.wishList.push('24 Month Old Sping/Summer Clothes')
