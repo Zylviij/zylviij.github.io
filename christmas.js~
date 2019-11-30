@@ -224,13 +224,6 @@ chris.wishList.push({
 	link: 'https://amzn.to/37SEipT'
 })
 
-const blake = users.find(user => user.username == 'zblake')
-blake.wishList.push({
-	text: 'Heated Blanket (Queen)',
-	link: 'https://amzn.to/2Y7a3XF'
-})
-
-
 const adults = users.filter(user => user.isAdult())
 
 User.setUpSecretSanta(adults)
