@@ -202,6 +202,64 @@ keith.wishList.push('Dark Chocolate')
 keith.wishList.push('Restaurant Gift Cards')
 keith.wishList.push('Anything that makes me look good (good luck)')
 
+const karen = users.find(user => user.username == 'skaren')
+karen.wishList.push({
+	text: 'Wisconsin State Fair Elf Pack Bundle',
+	link: 'https://www.etix.com/ticket/k/9974955/elf-pack-bundle-west-allis-wisconsin-state-fair-tickets'
+})
+karen.wishList.push({
+	text: 'Cotton or cotton blend crew socks size 8-12 (for shoe size 10) any colors, or black knee highs',
+	link: 'https://amzn.to/2rXs1Qu'
+})
+karen.wishList.push({
+	text: 'Pedicure Electric Nail Trimming Grinder Tool',
+	link: 'https://amzn.to/33UUy6k'
+})
+karen.wishList.push({
+	text: 'Crock-Pot Slow cooker travel tote bag',
+	link: 'https://amzn.to/33Rl2pC'
+})
+karen.wishList.push('Gift cards – Amazon, Smoke Shack, or Starbucks')
+karen.wishList.push('Have a great idea not on this list? Surprise me!')
+
+const greg = users.find(user => user.username == 'sgreg')
+greg.wishList.push({
+	text: 'MP3 player',
+	link: 'https://amzn.to/33Xs5gm'
+})
+greg.wishList.push({
+	text: 'Insulated Flannel Shirt - size large',
+	link: 'https://amzn.to/2sRmUll'
+})
+greg.wishList.push({
+	text: 'Dell Laptop Computer Battery #40WH  Type XCMRD',
+	link: 'https://amzn.to/34VtwNB'
+})
+greg.wishList.push('Kohls gift card')
+
+const amanda = users.find(user => user.username == 'samanda')
+amanda.wishList.push({
+	text: 'Metal trivet',
+	link: 'https://amzn.to/2DPkjuz'
+})
+amanda.wishList.push({
+	text: 'Mary Kay time wise pored minimizer',
+	link: 'https://amzn.to/2qmBksG'
+})
+amanda.wishList.push({
+	text: 'Coleman portable camping quad chair with 4-can cooler in arm rest',
+	link: 'https://amzn.to/369agN0'
+})
+amanda.wishList.push('Gift cards -amazon - hobby lobby - all tied up floral cafe (call The shop or facebook them they know me)')
+amanda.wishList.push({
+	text: 'Frame set to hold 3 photos 4x6 horizontal photos. Either 1 piece set that holds 3 photos or 3 frames',
+	link: 'https://amzn.to/2PoUwPg'
+})
+amanda.wishList.push({
+	text: 'Flashlights - standard for when the power goes out',
+	link: 'https://amzn.to/2LsSIDH'
+})
+
 const zach = users.find(user => user.username == 'szach')
 zach.wishList.push('Smart light bulbs soft white 60w equivalent')
 zach.wishList.push('A19 style Northface Beanie style knit hat')
@@ -209,6 +267,59 @@ zach.wishList.push('Grey or black Men\'s leather gloves (size large)')
 zach.wishList.push('Home Depot Gift Card')
 zach.wishList.push('Amazon Gift Card')
 zach.wishList.push('Scotch')
+
+const anita = users.find(user => user.username == 'sanita')
+anita.wishList.push({
+	text: 'Paw patrol dvd\'s (there are a ton of seasons)',
+	link: 'amand://amzn.to/2Lpyk63'
+})
+anita.wishList.push({
+	text: 'Riding boots / cowboy boots - size 11 (target type works)',
+	link: 'https://amzn.to/2LrPYX2'
+})
+anita.wishList.push({
+	text: 'Leather riding gloves',
+	link: 'https://amzn.to/36bo0XE'
+})
+anita.wishList.push('Funds towards classes for STEM and Music - classes')
+anita.wishList.push({
+	text: 'Barbie dolls/accesories',
+	link: 'https://amzn.to/2Pm6YPF'
+})
+anita.wishList.push({
+	text: 'Melissa and Doug craft items (or similar)',
+	link: 'https://amzn.to/33Rn6hm'
+})
+anita.wishList.push({
+	text: 'Bath bombs',
+	link: 'https://amzn.to/2DRTN3u'
+})
+anita.wishList.push({
+	text: 'Legos',
+	link: 'https://amzn.to/33T34D7'
+})
+anita.wishList.push({
+	text: 'Van\'s shoes - no laces size 11',
+	link: 'https://amzn.to/2YnQCtV'
+})
+anita.wishList.push({
+	text: 'Converse shoes -no laces size 11 these are the two types of shoes that dont get destroyed immediatly unlike other brands we have tried',
+	link: 'https://amzn.to/33ZEMaJ'
+})
+anita.wishList.push({
+	text: 'Columbia fleece full zip coat - size (we had one for her that lasted 3 winters they hold up great)',
+	link: 'https://amzn.to/2RoZs9b'
+})
+anita.wishList.push({
+	text: 'cribble scrubbie (crayola) - not cat(she has 2 cats)',
+	link: 'https://amzn.to/2DN9klg'
+})
+anita.wishList.push({
+	text: 'Model magic clay (crayola)',
+	link: 'https://amzn.to/2OVrGXw'
+})
+anita.wishList.push('Clothes size small - kids')
+anita.wishList.push('Date day - dinner or lunch with Anita or "spa" day (we can coordinate while in Milwaukee or you can come up to us and go to building for kids (we have passes) or something else super fun ')
 
 const chris = users.find(user => user.username == 'schris')
 chris.wishList.push({
